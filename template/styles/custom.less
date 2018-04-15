@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  height: 100%;
+  width: 100%;
+}
+
+#wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+
+#content {
+  display: table-row;
+  height: 100%;
+}
+
+a {
+  .app.animation(0.2s);
+  color: #179cde;
+
+  &:hover, &:focus {
+    color: #179cde;
+  }
+}
+
+header {
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+  nav {
+    background: #32afed;
+
+    ul {
+      font-size: 15px;
+
+      li {
+        margin: 0 10px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        a {
+          position: relative;
+          color: white;
+
+          &:hover, &:focus {
+            color: white !important;
+          }
+
+          &:after {
+            content: ' ';
+            position: absolute;
+            width: 90%;
+            height: 1.6px;
+            background: #fff;
+            bottom: 5px;
+            left: 5%;
+
+            opacity: 0;
+
+            .app.animation(0.5s);
+          }
+
+          &:hover {
+            &:after {
+              opacity: 0.3;
+            }
+          }
+
+        }
+
+        &.active, &:hover, &:focus {
+          a {
+            color: white !important;
+          }
+        }
+      }
+    }
+
+    .form-right {
+      button {
+        position: relative;
+        padding-left: 30px;
+
+        i {
+          position: absolute;
+          left: 5px;
+          font-size: 20px;
+          top: 8px;
+        }
+      }
+    }
+  }
+}
+
+.card {
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.05);
+
+  .card-header {
+    background: none;
+    border: none;
+    padding-bottom: 5px;
+  }
+
+  .card-body {
+    padding-top: 15px;
+  }
+}
+
+section#login {
+  .login {
+    margin: auto;
+
+    p {
+      &.text-register {
+        margin-bottom: 0;
+        margin-top: 25px;
+      }
+    }
+  }
+}
+
+section#account {
+  .account {
+    margin: auto;
+  }
+}
+
+section#register {
+  .container {
+    .row {
+      &>div {
+        margin: auto;
+
+        .gj-datepicker {
+          margin-bottom: 15px;
+        }
+
+        .accept-rules {
+          margin-top: 20px;
+
+          .text {
+            position: relative;
+            top: -3px;
+            padding-left: 10px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+section.page {
+  .page {
+    margin: auto;
+
+    p {
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul {
+      margin-bottom: 0;
+    }
+  }
+}
+
+#page-404 {
+  text-align: center;
+
+  h2 {
+    font-size: 125px;
+  }
+}
+
+form {
+  input, select {
+    margin-bottom: 15px;
+  }
+}
+
+footer {
+  margin-bottom: 20px;
+  margin-top: 35px;
+
+  hr {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  p.author {
+    margin: 0;
+    color: rgba(10, 10, 10, 0.5);
+  }
+}
+
+
+.app {
+  .animation (@sec) {
+    transition: @sec;
+  }
+}
