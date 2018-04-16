@@ -29,13 +29,13 @@
                                        id="datepicker"
                                        name="date_birth">
 
-                                <select class="form-control" name="city">
-                                    <option value="no-select">Выберете свой
-                                        город из списка
+                                <select class="form-control" name="country">
+                                    <option value="no-select">Выберете свою
+                                        страну из списка
                                     </option>
-                                    <?php foreach ($citiesArr as $city) { ?>
-                                        <option value="<?php echo $city['id'] ?>">
-                                            <?php echo $city['name'] ?>
+                                    <?php foreach ($countriesArr as $country) { ?>
+                                        <option value="<?php echo $country['id'] ?>">
+                                            <?php echo $country['name'] ?>
                                         </option>
                                     <?php } ?>
                                 </select>

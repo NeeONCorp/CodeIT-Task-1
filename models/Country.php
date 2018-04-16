@@ -1,20 +1,20 @@
 <?php
 
-class City
+class Country
 {
 
     /**
-     * Проверить существование города с указанным Id
+     * Проверить существование страны с указанным Id
      *
      * @param $id
      *
      * @return bool
      */
-    public static function existCityById($id)
+    public static function existCountryById($id)
     {
         $db = Db::getConnection();
         $query
-            = $db->prepare('SELECT COUNT(*) as count FROM cities WHERE id = :id');
+            = $db->prepare('SELECT COUNT(*) as count FROM countries WHERE id = :id');
         $query->execute(['id' => $id]);
 
         $count = $query->fetch();
@@ -28,14 +28,14 @@ class City
     }
 
     /**
-     * Возвращает массив со списком активных городов
+     * Возвращает массив со списком активных стран
      *
      * @return array
      */
-    public static function getCitiesList()
+    public static function getCountriesList()
     {
         $db = Db::getConnection();
-        $query = $db->query('SELECT id, name FROM cities WHERE status != 0');
+        $query = $db->query('SELECT id, name FROM countries WHERE status != 0');
 
         $result = $query->fetchAll();
 

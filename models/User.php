@@ -161,7 +161,7 @@ class User
      * @param $name
      * @param $password
      * @param $dateBirth
-     * @param $cityId
+     * @param $countryId
      * @param $acceptRules
      *
      * @return bool|mixed
@@ -172,7 +172,7 @@ class User
         $name,
         $password,
         $dateBirth,
-        $cityId,
+        $countryId,
         $acceptRules
     ) {
         $errors = [];
@@ -202,8 +202,8 @@ class User
             $errors[]
                 = 'Некорректная дата рождения. Обратите внимание, что она должна быть меньше сегодняшней даты.';
         }
-        if ( ! City::existCityById($cityId)) {
-            $errors[] = 'Выбранный город больше недоступен для записи.';
+        if ( ! Country::existCountryById($countryId)) {
+            $errors[] = 'Выбранная страна больше недоступна для записи.';
         }
         if ( ! self::checkAcceptRules($acceptRules)) {
             $errors[]
@@ -226,7 +226,7 @@ class User
      * @param $name
      * @param $password
      * @param $dateBirth
-     * @param $cityId
+     * @param $countryId
      *
      * @return int|false
      */
@@ -236,7 +236,7 @@ class User
         $name,
         $password,
         $dateBirth,
-        $cityId
+        $countryId
     ) {
         # Разбить дату на массив
         $dateBirth = explode('/', $dateBirth);
@@ -247,10 +247,10 @@ class User
         $db    = Db::getConnection();
         $query = $db->prepare('INSERT INTO users 
                 (email, login, password, name, year_birth, month_birth, day_birth, 
-                id_city, timestamp_registration) 
+                id_country, timestamp_registration) 
                 VALUES 
                 (:email, :login, :password, :name, :year_birth, :month_birth,
-                :day_birth, :id_city, :timestamp)');
+                :day_birth, :id_country, :timestamp)');
 
         $result = $query->execute([
             'email'       => $email,
@@ -260,11 +260,11 @@ class User
             'year_birth'  => $dateBirth[2],
             'month_birth' => $dateBirth[1],
             'day_birth'   => $dateBirth[0],
-            'id_city'     => $cityId,
+            'id_country'  => $countryId,
             'timestamp'   => time(),
         ]);
 
-        if($result) {
+        if ($result) {
             return $db->lastInsertId();
         }
 
@@ -370,10 +370,10 @@ class User
                                          users.year_birth,
                                          users.month_birth,
                                          users.day_birth,
-                                         users.id_city,
-                                         cities.name as city_name  
+                                         users.id_country,
+                                         countries.name as country_name  
                                          FROM users
-                                         LEFT JOIN cities ON users.id_city = cities.id
+                                         LEFT JOIN countries ON users.id_country = countries.id
                                          WHERE users.id = :id');
         $query->execute(['id' => $id]);
 
@@ -385,8 +385,9 @@ class User
     /**
      * Уничтожает сессию пользователя
      */
-    public static function logout() {
-        if(isset($_SESSION['user'])) {
+    public static function logout()
+    {
+        if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
         }
     }

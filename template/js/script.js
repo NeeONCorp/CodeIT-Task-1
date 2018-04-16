@@ -21,8 +21,8 @@ $App = {
                 }
             });
 
-            if($form.find('input[name="city"]').val() === 'no-select') {
-                swal("Упис, ошибка!", "Выберете свой город из списка.", "error");
+            if($form.find('select[name="country"]').val() === 'no-select') {
+                swal("Упис, ошибка!", "Выберете свою страну из списка.", "error");
                 $error = true;
             }
 

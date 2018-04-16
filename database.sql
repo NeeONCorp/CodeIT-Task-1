@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 15 2018 г., 23:24
+-- Время создания: Апр 17 2018 г., 00:44
 -- Версия сервера: 10.0.33-MariaDB
 -- Версия PHP: 7.1.12
 
@@ -25,25 +25,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `cities`
+-- Структура таблицы `countries`
 --
 
-CREATE TABLE `cities` (
+CREATE TABLE `countries` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `status` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `cities`
+-- Дамп данных таблицы `countries`
 --
 
-INSERT INTO `cities` (`id`, `name`, `status`) VALUES
-(1, 'Полтава', 1),
-(2, 'Харьков', 1),
-(3, 'Киев', 1),
-(4, 'Львов', 1),
-(5, 'Одесса', 1);
+INSERT INTO `countries` (`id`, `name`, `status`) VALUES
+(1, 'Украина', 1),
+(2, 'Россия', 1),
+(3, 'Германия', 1),
+(4, 'Италия', 1),
+(5, 'Турция', 1);
 
 -- --------------------------------------------------------
 
@@ -61,25 +61,25 @@ CREATE TABLE `users` (
   `month_birth` int(2) NOT NULL,
   `day_birth` int(2) NOT NULL,
   `timestamp_registration` int(15) DEFAULT NULL,
-  `id_city` int(11) NOT NULL
+  `id_country` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `login`, `password`, `name`, `year_birth`, `month_birth`, `day_birth`, `timestamp_registration`, `id_city`) VALUES
-(1, 'neeon.corp@gmail.com', 'vldkobrenko', '$2y$10$VuNfffloxH.ZCusYxQmwdu3znkxP62J4zChtRR4BFxdhFfQvuth7u', 'Владислав Кобренко', 1997, 9, 24, 1523818575, 1),
-(2, 'durov@vk.com', 'durov', '$2y$10$qf7uQFHEpYreymNadqXX2eIRJtLcc.jV9NLEFrdeL8ck3xofvGisa', 'Pavel Durov', 2018, 4, 13, 1523818816, 5);
+INSERT INTO `users` (`id`, `email`, `login`, `password`, `name`, `year_birth`, `month_birth`, `day_birth`, `timestamp_registration`, `id_country`) VALUES
+(1, 'neeon.corp@gmail.com', 'vldkobrenko', '$2y$10$k4t1U3/4pDBRUJxm66CZgOQnbdwzk0nedhEz.krqPTgRtC0LPpX0.', 'Владислав Сергеевич Кобренко', 1997, 9, 24, 1523915003, 1),
+(2, 'durov@vk.com', 'durov', '$2y$10$J3UW4LtSjqviKd6ecBu1HOd01t7KfJb11MZOG/yFY9MAKuJMpkq.q', 'Pavel Durov', 1994, 6, 7, 1523915055, 2);
 
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `cities`
+-- Индексы таблицы `countries`
 --
-ALTER TABLE `cities`
+ALTER TABLE `countries`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -93,9 +93,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT для таблицы `cities`
+-- AUTO_INCREMENT для таблицы `countries`
 --
-ALTER TABLE `cities`
+ALTER TABLE `countries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --

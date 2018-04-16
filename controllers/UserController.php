@@ -29,8 +29,8 @@ class UserController extends App
             header('Location: ./account');
         }
 
-        # Получить список городов
-        $citiesArr = City::getCitiesList();
+        # Получить список стран
+        $countriesArr = Country::getCountriesList();
 
         # Заголовок страницы
         self::$page['title'] = 'Регистрация';

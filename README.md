@@ -1,4 +1,4 @@
-### CodeIT - Task 1
+## CodeIT - Task 1
 Данный проект представляет собой реализацию первого задания.
 
 Система позволяет пользователю создать новый аккаунт, пройти авторизацию, а также просмотреть информацию о своем профиле.
@@ -9,4 +9,9 @@
 * Pattern: front controller
 * PDO
 
-<img src="http://screenshot.su/img/76/8a/9e/768a9e007a9696c7d2cfdb259cc698ed.jpg">
+## Инсталляция на сервер
+1. git clone https://github.com/NeeONCorp/CodeIT-Task-1.git
+2. Импортируйте database.sql в СУБД MariaDB
+3. Отредактируйте данные для подключения к БД в файле config/db_params.php
+
+<img src="http://screenshot.su/img/d4/4f/5f/d44f5f3556ac9cff79c66d2025debfdd.jpg">
