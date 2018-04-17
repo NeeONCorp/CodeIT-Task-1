@@ -22,7 +22,7 @@ $App = {
             });
 
             if($form.find('select[name="country"]').val() === 'no-select') {
-                swal("Упис, ошибка!", "Выберете свою страну из списка.", "error");
+                swal("Упс, ошибка!", "Выберете свою страну из списка.", "error");
                 $error = true;
             }
 
@@ -37,7 +37,7 @@ $App = {
                             window.location.href = './account';
                         });
                     } else {
-                        swal("Упис, ошибка!", response, "error");
+                        swal("Упс, ошибка!", response, "error");
                     }
                 }
             }
